@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Math Example</title>
-</head>
-<body>
-  <h1>Math Example</h1>
-  <p>How random are JavaScript random numbers? Let's generate 5000 and find out.</p>
-  
-  <script type="text/javascript">
-    let total = 0;
+  <head>
+    <title>JavaScript Example</title>
+  </head>
+  <body>
+    <h2>What Can JavaScript Do?</h2>
+    <p>JavaScript can change HTML attribute values.</p>
+    <p>In this case, JavaScript changes the value of the <code>src</code> (source) attribute of an image.</p>
 
-    for (let i = 1; i <= 5000; i++) {
-      let num = Math.random(); // generates a random number between 0 and 1
-      total += num;
+    <!-- Button to turn ON the light -->
+    <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">
+      Turn on the light
+    </button>
 
-      if (i % 1000 === 0) {  
-        document.write("Generated " + i + " numbers...<br>");
-      }
-    }
+    <!-- The image element -->
+    <img id="myImage" src="pic_bulboff.png" style="width:100px">
 
-    let average = total / 5000;
-    average = Math.round(average * 1000) / 1000; // round to 3 decimal places
-
-    document.write("<h2>Average of 5000 numbers: " + average + "</h2>");
-  </script>
-</body>
+    <!-- Button to turn OFF the light -->
+    <button onclick="document.getElementById('myImage').src='pic_bulboff.png'">
+      Turn off the light
+    </button>
+  </body>
 </html>
