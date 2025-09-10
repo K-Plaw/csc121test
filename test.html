@@ -1,47 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h2>Rectangle Area & Perimeter Calculator</h2>
+<head>
+  <title>Math Example</title>
+</head>
+<body>
+  <h1>Math Example</h1>
+  <p>How random are JavaScript random numbers? Let's generate 5000 and find out.</p>
+  
+  <script type="text/javascript">
+    let total = 0;
 
-    <form name="calcForm">
-      <!-- Input fields -->
-      <label for="length">Length:</label>
-      <input type="text" id="length" name="length"><br><br>
+    for (let i = 1; i <= 5000; i++) {
+      let num = Math.random(); // generates a random number between 0 and 1
+      total += num;
 
-      <label for="width">Width:</label>
-      <input type="text" id="width" name="width"><br><br>
-
-      <!-- Output fields -->
-      <label for="areaBox">Area:</label>
-      <input type="text" id="areaBox" name="areaBox" readonly><br><br>
-
-      <label for="perimeterBox">Perimeter:</label>
-      <input type="text" id="perimeterBox" name="perimeterBox" readonly><br><br>
-
-      <!-- Button -->
-      <button type="button" onclick="calculate()">Calculate</button>
-    </form>
-
-    <script>
-      function calculate() {
-        // Get input values
-        let length = parseFloat(document.calcForm.length.value);
-        let width = parseFloat(document.calcForm.width.value);
-
-        // Validate inputs
-        if (isNaN(length) || isNaN(width)) {
-          alert("Please enter valid numbers for length and width.");
-          return;
-        }
-
-        // Perform calculations
-        let area = length * width;
-        let perimeter = 2 * (length + width);
-
-        // Display results
-        document.calcForm.areaBox.value = area;
-        document.calcForm.perimeterBox.value = perimeter;
+      if (i % 1000 === 0) {  
+        document.write("Generated " + i + " numbers...<br>");
       }
-    </script>
-  </body>
+    }
+
+    let average = total / 5000;
+    average = Math.round(average * 1000) / 1000; // round to 3 decimal places
+
+    document.write("<h2>Average of 5000 numbers: " + average + "</h2>");
+  </script>
+</body>
 </html>
