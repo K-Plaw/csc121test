@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Rectangle Area & Perimeter Calculator</h2>
+
+    <form name="calcForm">
+      <!-- Input fields -->
+      <label for="length">Length:</label>
+      <input type="text" id="length" name="length"><br><br>
+
+      <label for="width">Width:</label>
+      <input type="text" id="width" name="width"><br><br>
+
+      <!-- Output fields -->
+      <label for="areaBox">Area:</label>
+      <input type="text" id="areaBox" name="areaBox" readonly><br><br>
+
+      <label for="perimeterBox">Perimeter:</label>
+      <input type="text" id="perimeterBox" name="perimeterBox" readonly><br><br>
+
+      <!-- Button -->
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <script>
+      function calculate() {
+        // Get input values
+        let length = parseFloat(document.calcForm.length.value);
+        let width = parseFloat(document.calcForm.width.value);
+
+        // Validate inputs
+        if (isNaN(length) || isNaN(width)) {
+          alert("Please enter valid numbers for length and width.");
+          return;
+        }
+
+        // Perform calculations
+        let area = length * width;
+        let perimeter = 2 * (length + width);
+
+        // Display results
+        document.calcForm.areaBox.value = area;
+        document.calcForm.perimeterBox.value = perimeter;
+      }
+    </script>
+  </body>
+</html>
